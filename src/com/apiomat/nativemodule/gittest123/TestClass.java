@@ -61,6 +61,7 @@ public class TestClass extends AbstractClientDataModel implements IModel<TestCla
     public static final String MODEL_NAME = "TestClass";
 
     /** class specific attributes */
+    private String content = null;
     /**
      * Protected constructor; to create a new instance, use the createObject() method
      */
@@ -83,6 +84,16 @@ public class TestClass extends AbstractClientDataModel implements IModel<TestCla
     public String getModelName( )
     {
         return MODEL_NAME;
+    }
+
+    public String getContent()
+    {
+         return this.content;
+    }
+
+    public void setContent( String arg )
+    {
+        this.content = arg;
     }
 
 }
