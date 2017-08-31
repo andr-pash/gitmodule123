@@ -61,6 +61,8 @@ public class TestResourceAccess extends AbstractClientDataModel implements IMode
     public static final String MODEL_NAME = "TestResourceAccess";
 
     /** class specific attributes */
+    @StaticData( type = com.apiomat.nativemodule.StaticData.Type.File )
+    private String fileURL;
     /**
      * Protected constructor; to create a new instance, use the createObject() method
      */
@@ -83,6 +85,43 @@ public class TestResourceAccess extends AbstractClientDataModel implements IMode
     public String getModelName( )
     {
         return MODEL_NAME;
+    }
+
+    public String getFileURL( )
+    {
+        String url;
+        url = this.fileURL;
+        return url;
+    }
+
+    public byte[] loadFile( )
+    {
+        String resUrl = getFileURL()+".img";
+        return loadResource(resUrl);
+    }
+
+    public String getFileURL( String apiKey, String system )
+    {
+        final String additionalParameters = ".img?apiKey=" + apiKey + "&system=" + system;
+        return getFileURL( ) + additionalParameters;
+    }
+
+    public byte[] loadFile( String apiKey, String system )
+    {
+        final String resUrl = getFileURL( apiKey, system );
+        return loadResource(resUrl);
+    }
+
+    public void setFileURL( String url ) 
+    {
+        this.fileURL = url;
+    }
+
+    public String postFile( byte[] data , String fileName, String format )
+    {
+        String url = saveResource( data, false, fileName, format );
+        setFileURL( url );
+        return url;
     }
 
 }
