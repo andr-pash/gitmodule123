@@ -61,6 +61,7 @@ public class Blub extends AbstractClientDataModel implements IModel<Blub>
     public static final String MODEL_NAME = "Blub";
 
     /** class specific attributes */
+    private String attributsname = null;
     private String name = null;
     /**
      * Protected constructor; to create a new instance, use the createObject() method
@@ -84,6 +85,16 @@ public class Blub extends AbstractClientDataModel implements IModel<Blub>
     public String getModelName( )
     {
         return MODEL_NAME;
+    }
+
+    public String getAttributsname()
+    {
+         return this.attributsname;
+    }
+
+    public void setAttributsname( String arg )
+    {
+        this.attributsname = arg;
     }
 
     public String getName()
