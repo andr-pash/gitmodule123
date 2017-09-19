@@ -26,6 +26,7 @@ package com.apiomat.nativemodule.gittest123;
 
 
 import com.apiomat.nativemodule.basics.*;
+import com.apiomat.nativemodule.gittest123.*;
 /**
 * Generated class for your TestClass data model
 *
@@ -54,6 +55,7 @@ public class TestClass extends com.apiomat.nativemodule.AbstractClientDataModel 
 
     /** class specific attributes */
     private String content = null;
+    private com.apiomat.nativemodule.gittest123.TestResourceAccess relation = null;
     /**
      * Protected constructor; to create a new instance, use the createObject() method
      */
@@ -86,6 +88,36 @@ public class TestClass extends com.apiomat.nativemodule.AbstractClientDataModel 
     public void setContent( String arg )
     {
         this.content = arg;
+    }
+
+    public com.apiomat.nativemodule.gittest123.TestResourceAccess getRelation()
+    { 
+        if(this.relation == null)
+        {
+            /* do this by reflection to be backward compartible */
+            try
+            {
+                java.lang.reflect.Method m = com.apiomat.nativemodule.AbstractClientDataModel.class.getMethod( "loadReference", String.class,  Class.class );
+                this.relation =  ( com.apiomat.nativemodule.gittest123.TestResourceAccess ) m.invoke( this, "relation", com.apiomat.nativemodule.gittest123.TestResourceAccess.class );
+            }
+            catch ( java.lang.NoSuchMethodException | java.lang.SecurityException | java.lang.IllegalAccessException | java.lang.IllegalArgumentException | java.lang.reflect.InvocationTargetException e )
+            {
+                 //silently ignored
+            }
+        }   
+        return this.relation;
+    }
+
+    public void postRelation( final com.apiomat.nativemodule.gittest123.TestResourceAccess refData )
+    {
+        addReference( "relation", refData );
+        this.relation = refData;
+    }
+
+    public void removeRelation( final com.apiomat.nativemodule.gittest123.TestResourceAccess refData )
+    {
+        removeReference( "relation", refData );
+        this.relation = null;
     }
 
 }
