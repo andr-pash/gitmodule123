@@ -24,16 +24,8 @@
  */
 package com.apiomat.nativemodule.gittest123;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
-import com.apiomat.nativemodule.*;
-
 
 import com.apiomat.nativemodule.basics.*;
-import com.apiomat.nativemodule.AuthState;
 /**
 * Generated class for your TestResourceAccess data model
 *
@@ -41,15 +33,15 @@ import com.apiomat.nativemodule.AuthState;
 * EVERYTHING ELSE WILL GET OVERWRITTEN!
 *
 */
-@SuppressWarnings( "unused" )
-@Model( moduleName = "GitTest123",
+@java.lang.SuppressWarnings( "unused" )
+@com.apiomat.nativemodule.Model( moduleName = "GitTest123",
     hooksClassNameTransient = "com.apiomat.nativemodule.gittest123.TestResourceAccessHooksTransient", 
     hooksClassNameNonTransient = "com.apiomat.nativemodule.gittest123.TestResourceAccessHooksNonTransient", 
-            isTransient = false,     requiredUserRoleCreate=UserRole.User, requiredUserRoleRead=UserRole.User,
-    requiredUserRoleWrite=UserRole.Owner, restrictResourceAccess=true,
+            isTransient = false,     requiredUserRoleCreate=com.apiomat.nativemodule.UserRole.User, requiredUserRoleRead=com.apiomat.nativemodule.UserRole.User,
+    requiredUserRoleWrite=com.apiomat.nativemodule.UserRole.Owner, restrictResourceAccess=true,
     allowedRolesCreate={}, allowedRolesRead={},
     allowedRolesWrite={}, allowedRolesGrant={})
-public class TestResourceAccess extends AbstractClientDataModel implements IModel<TestResourceAccess>
+public class TestResourceAccess extends com.apiomat.nativemodule.AbstractClientDataModel implements com.apiomat.nativemodule.IModel<com.apiomat.nativemodule.gittest123.TestResourceAccess>
 {
     /**
      * Contains the name of the module that this model belongs to
@@ -61,9 +53,9 @@ public class TestResourceAccess extends AbstractClientDataModel implements IMode
     public static final String MODEL_NAME = "TestResourceAccess";
 
     /** class specific attributes */
-    @StaticData( type = com.apiomat.nativemodule.StaticData.Type.File )
+    @com.apiomat.nativemodule.StaticData( type = com.apiomat.nativemodule.StaticData.Type.File )
     private String fileURL;
-    @StaticData( type = com.apiomat.nativemodule.StaticData.Type.Image )
+    @com.apiomat.nativemodule.StaticData( type = com.apiomat.nativemodule.StaticData.Type.Image )
     private String imageURL;
     /**
      * Protected constructor; to create a new instance, use the createObject() method
@@ -142,7 +134,7 @@ public class TestResourceAccess extends AbstractClientDataModel implements IMode
     public String getImageURL( String apiKey, String system, int width, int height, 
         String backgroundColorAsHex, Double alpha, String format )
     {
-        final StringBuilder additionalParameters = new StringBuilder();
+        final java.lang.StringBuilder additionalParameters = new java.lang.StringBuilder();
         additionalParameters.append( ".img?apiKey=" );
         additionalParameters.append( apiKey );
         additionalParameters.append( "&system=" );

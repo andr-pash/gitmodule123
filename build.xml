@@ -72,7 +72,6 @@
 		<copy tofile="./tmp/sdk.properties" file="sdk.properties" />
 		<copy todir="./tmp">
 			<fileset dir="${src}">
-				<include name="**/${moduleName}.java" />
 				<include name="**/*Hooks.java" />
                 <include name="**/*HooksNonTransient.java" />
                 <include name="**/*HooksTransient.java" />
@@ -84,7 +83,6 @@
 		<copy file="./tmp/sdk.properties" tofile="sdk.properties" overwrite="true" />
 		<copy todir="${src}" overwrite="true">
 			<fileset dir="./tmp">
-				<include name="**/${moduleName}.java" />
 				<include name="**/*Hooks.java" />
                 <include name="**/*HooksNonTransient.java" />
                 <include name="**/*HooksTransient.java" />

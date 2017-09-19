@@ -103,6 +103,7 @@ public enum Status
     INVISIBLE_CLASS( 770, "Class is not visible to REST!" ),
     MODULE_TYPE_NOT_ALLOWED( 771, "The action is not allowed for this module type" ),
     MAX_FILE_SIZE( 772, "File is larger than maximum file size!" ),
+    BAD_RESOURCE( 773, "Resource seems to be corrupted or is unexpectedly null or empty." ),
     APPLICATION_NOT_FOUND( 801, "Application was not found!" ),
     CUSTOMER_NOT_FOUND( 802, "Customer was not found!" ),
     ID_NOT_FOUND( 803, "ID was not found!" ),

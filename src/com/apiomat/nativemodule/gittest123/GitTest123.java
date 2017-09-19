@@ -44,7 +44,7 @@ import com.apiomat.nativemodule.AbstractRestResource;
  * 
  */
 @Module( description="", 
-         usedModules={}, securityPermissions = {} )
+         usedModules={ }, securityPermissions = {} )
 public class GitTest123 implements IModule
 {
     static IApplicationConfigProxy APP_CONFIG_PROXY;
