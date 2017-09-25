@@ -53,7 +53,7 @@ public class TestResourceAccess extends com.apiomat.nativemodule.AbstractClientD
     public static final String MODEL_NAME = "TestResourceAccess";
 
     /** class specific attributes */
-    @com.apiomat.nativemodule.StaticData( type = com.apiomat.nativemodule.StaticData.Type.File )
+    @com.apiomat.nativemodule.StaticData( type = com.apiomat.nativemodule.StaticData.Type.Image )
     private String fileURL;
     @com.apiomat.nativemodule.StaticData( type = com.apiomat.nativemodule.StaticData.Type.Image )
     private String imageURL;
@@ -94,15 +94,42 @@ public class TestResourceAccess extends com.apiomat.nativemodule.AbstractClientD
         return loadResource(resUrl);
     }
 
-    public String getFileURL( String apiKey, String system )
+    public String getFileURL( String apiKey, String system, int width, int height, 
+        String backgroundColorAsHex, Double alpha, String format )
     {
-        final String additionalParameters = ".img?apiKey=" + apiKey + "&system=" + system;
+        final java.lang.StringBuilder additionalParameters = new java.lang.StringBuilder();
+        additionalParameters.append( ".img?apiKey=" );
+        additionalParameters.append( apiKey );
+        additionalParameters.append( "&system=" );
+        additionalParameters.append( system );
+        additionalParameters.append( "&width=" );
+        additionalParameters.append( width );
+        additionalParameters.append( "&height=" );
+        additionalParameters.append( height );
+        
+        if(backgroundColorAsHex != null) 
+        {
+            additionalParameters.append( "&bgcolor=" );
+            additionalParameters.append( backgroundColorAsHex );
+        }
+        if(alpha != null)
+        {
+            additionalParameters.append( "&alpha=" );
+            additionalParameters.append( alpha );
+        }
+        if(format != null)
+        {
+            additionalParameters.append( "&format=" );
+            additionalParameters.append( format );
+        }
         return getFileURL( ) + additionalParameters;
     }
 
-    public byte[] loadFile( String apiKey, String system )
+    public byte[] loadFile( String apiKey, String system, int width, int height, 
+        String backgroundColorAsHex, Double alpha, String format )
     {
-        final String resUrl = getFileURL( apiKey, system );
+        final String resUrl = getFileURL( apiKey, system, width, height, 
+            backgroundColorAsHex, alpha, format );
         return loadResource(resUrl);
     }
 
@@ -113,7 +140,7 @@ public class TestResourceAccess extends com.apiomat.nativemodule.AbstractClientD
 
     public String postFile( byte[] data , String fileName, String format )
     {
-        String url = saveResource( data, false, fileName, format );
+        String url = saveResource( data, true, fileName, format );
         setFileURL( url );
         return url;
     }
